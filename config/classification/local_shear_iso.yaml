@@ -1,0 +1,38 @@
+backbone: ./pretrained/classification/backbone_local_shear_iso.pt
+classifier: ./pretrained/classification/classifier_local_shear_iso.pt
+config: null
+data_path: ./data
+dataset: graph_ter_cls.dataset.ModelNet40
+device:
+- 0
+- 1
+- 2
+- 3
+dropout: 0.5
+eval_interval: 1
+eval_model: true
+ignore_backbone: []
+ignore_classifier: []
+knn: 20
+log_interval: 50
+lr: 0.1
+momentum: 0.9
+num_epochs: 512
+num_points: 1024
+optimizer: sgd
+phase: test
+print_log: true
+save_dir: ./results
+save_interval: 1
+save_model: true
+seed: 255
+show_details: true
+test_batch_size: 32
+train_batch_size: 32
+transform: graph_ter_cls.transforms.LocalShear
+transform_args:
+  mode: isotropic
+  num_samples: 256
+use_cuda: true
+use_seed: false
+use_tensorboard: true

@@ -1,0 +1,38 @@
+backbone: ./pretrained/segmentation/backbone_global_shear_iso.pt
+classifier: ./pretrained/segmentation/classifier_global_shear_iso.pt
+config: null
+data_path: ./data
+dataset: graph_ter_seg.dataset.ShapeNetPart
+device:
+- 0
+- 1
+- 2
+- 3
+dropout: 0.5
+eval_interval: 1
+eval_model: true
+ignore_backbone: []
+ignore_classifier: []
+knn: 20
+log_interval: 50
+lr: 0.1
+momentum: 0.9
+num_epochs: 512
+num_points: 2048
+optimizer: sgd
+phase: test
+print_log: true
+save_dir: ./results
+save_interval: 1
+save_model: true
+seed: 255
+show_details: true
+test_batch_size: 32
+train_batch_size: 32
+transform: graph_ter_seg.transforms.GlobalShear
+transform_args:
+  mode: isotropic
+  num_samples: 512
+use_cuda: true
+use_seed: false
+use_tensorboard: true
