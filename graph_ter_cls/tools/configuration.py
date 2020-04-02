@@ -40,6 +40,12 @@ def get_parser():
         default=20,
         help='number of k nearest neighbors'
     )
+    parser.add_argument(
+        '--lambda-mse',
+        type=float,
+        default=1.0,
+        help='the weighting parameter of MSE loss'
+    )
 
     # runner
     parser.add_argument(
