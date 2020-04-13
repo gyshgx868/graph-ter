@@ -154,7 +154,7 @@ class Runner:
         if self.optimizer is None:
             return
         self.scheduler = torch.optim.lr_scheduler.CosineAnnealingLR(
-            self.optimizer, self.args.num_epochs, eta_min=self.args.lr
+            self.optimizer, self.args.num_epochs, eta_min=self.args.lr / 100.0
         )
 
     @abstractmethod
