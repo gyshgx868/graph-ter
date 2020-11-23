@@ -47,7 +47,7 @@ class Classifier(nn.Module):
         features = features.repeat(1, 1, self.num_points)
         features = torch.cat((features, x), dim=1)
         features = self.classifier(features)
-        features = features.permute(0, 2, 1)
+        features = features.permute(0, 2, 1).contiguous()
         features = F.log_softmax(features, dim=-1)
         return features
 

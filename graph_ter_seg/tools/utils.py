@@ -61,7 +61,7 @@ def get_edge_feature(x, k=20):
     feature = x.view(batch_size * num_points, -1)[indices, :]
     feature = feature.view(batch_size, num_points, k, num_feats)
     x = x.view(batch_size, num_points, 1, num_feats).repeat(1, 1, k, 1)
-    feature = torch.cat((feature - x, x), dim=3).permute(0, 3, 1, 2)
+    feature = torch.cat((feature - x, x), dim=3).permute(0, 3, 1, 2).contiguous()
     return feature
 
 
